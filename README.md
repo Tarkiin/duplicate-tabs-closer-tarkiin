@@ -178,9 +178,9 @@ cd duplicate-tabs-closer-tarkiin
 
 ## 📞 Soporte
 
-- **Issues**: [GitHub Issues](https://github.com/tu-usuario/duplicate-tabs-closer-tarkiin/issues)
-- **Documentación**: [Wiki del Proyecto](https://github.com/tu-usuario/duplicate-tabs-closer-tarkiin/wiki)
-- **Email**: soporte@tarkiin.com
+- **Issues**: [GitHub Issues](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/issues)
+- **Documentación**: [Wiki del Proyecto](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/wiki)
+- **Email**: joel_torresano@hotmail.com
 
 ## 📄 Licencia
 
@@ -208,6 +208,6 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 
 **¿Te gusta esta extensión?** ⭐ ¡Dale una estrella al repositorio y compártela con otros!
 
-**¿Encontraste un bug?** 🐛 [Reporta el problema aquí](https://github.com/tu-usuario/duplicate-tabs-closer-tarkiin/issues/new)
+**¿Encontraste un bug?** 🐛 [Reporta el problema aquí](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/issues/new)
 
-**¿Tienes una idea?** 💡 [Sugiere una nueva funcionalidad](https://github.com/tu-usuario/duplicate-tabs-closer-tarkiin/issues/new?template=feature_request.md)
+**¿Tienes una idea?** 💡 [Sugiere una nueva funcionalidad](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/issues/new?template=feature_request.md)
