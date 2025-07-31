@@ -1,7 +1,7 @@
 {
     "options": {
-        "message": "选项",
-        "description": "Options",
+        "message": "Duplicate Tabs Closer - Tarkiin",
+        "description": "Duplicate Tabs Closer - Tarkiin",
         "hash": "531dad0078a72193602b18495f0ad4e9"
     },
     "onDuplicateTabDetected": {

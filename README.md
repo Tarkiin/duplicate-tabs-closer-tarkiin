@@ -142,7 +142,7 @@ localhost:*
 ### Comandos de Desarrollo
 ```bash
 # Clonar repositorio
-git clone https://github.com/tu-usuario/duplicate-tabs-closer-tarkiin.git
+git clone https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin.git
 cd duplicate-tabs-closer-tarkiin
 
 # Cargar en Chrome

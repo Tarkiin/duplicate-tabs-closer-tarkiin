@@ -1,7 +1,7 @@
 {
   "options": {
-    "message": "Options",
-    "description": "Options"
+    "message": "Duplicate Tabs Closer - Tarkiin",
+    "description": "Duplicate Tabs Closer - Tarkiin"
   },
   "onDuplicateTabDetected": {
     "message": "À la détection d'un doublon",

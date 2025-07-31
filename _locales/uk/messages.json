@@ -1,7 +1,7 @@
 {
   "options": {
-    "message": "Опції",
-    "description": "Options"
+    "message": "Duplicate Tabs Closer - Tarkiin",
+    "description": "Duplicate Tabs Closer - Tarkiin"
   },
   "onDuplicateTabDetected": {
     "message": "Якщо виявлено дублікат вкладки",

@@ -1,0 +1,162 @@
+{
+  "options": {
+    "message": "Duplicate Tabs Closer - Tarkiin",
+    "description": "Duplicate Tabs Closer - Tarkiin"
+  },
+  "onDuplicateTabDetected": {
+    "message": "Al detectar pestaña duplicada",
+    "description": "Al detectar pestaña duplicada"
+  },
+  "doNothing": {
+    "message": "No hacer nada",
+    "description": "No hacer nada"
+  },
+  "autoCloseTab": {
+    "message": "Cerrar pestaña automáticamente",
+    "description": "Cerrar pestaña automáticamente"
+  },
+  "showPanel": {
+    "message": "Mostrar panel",
+    "description": "Mostrar panel"
+  },
+  "tabPriority": {
+    "message": "Prioridad",
+    "description": "Prioridad"
+  },
+  "keepNewerTab": {
+    "message": "Mantener pestaña más nueva",
+    "description": "Mantener pestaña más nueva"
+  },
+  "keepOlderTab": {
+    "message": "Mantener pestaña más antigua",
+    "description": "Mantener pestaña más antigua"
+  },
+  "keepReloadOlderTab": {
+    "message": "Mantener y recargar pestaña más antigua",
+    "description": "Mantener y recargar pestaña más antigua"
+  },
+  "keepTabWithHistory": {
+    "message": "Mantener pestaña con historial",
+    "description": "Mantener pestaña con historial"
+  },
+  "keeptabwithHttps": {
+    "message": "Mantener pestaña con https",
+    "description": "Mantener pestaña con https"
+  },
+  "keepPinnedTab": {
+    "message": "Mantener pestaña fijada",
+    "description": "Mantener pestaña fijada"
+  },
+  "onRemainingTab": {
+    "message": "En pestaña restante",
+    "description": "En pestaña restante"
+  },
+  "activateKeptTab": {
+    "message": "Activar",
+    "description": "Activar"
+  },
+  "defaultTabBehavior": {
+    "message": "Comportamiento predeterminado de pestaña",
+    "description": "Comportamiento predeterminado de pestaña"
+  },
+  "matchingRules": {
+    "message": "Reglas de coincidencia",
+    "description": "Reglas de coincidencia"
+  },
+  "ignoreHashPart": {
+    "message": "Ignorar parte hash en URL",
+    "description": "Ignorar parte hash en URL"
+  },
+  "ignoreSearchPart": {
+    "message": "Ignorar parte de búsqueda en URL",
+    "description": "Ignorar parte de búsqueda en URL"
+  },
+  "ignorePathPart": {
+    "message": "Ignorar parte de ruta en URL",
+    "description": "Ignorar parte de ruta en URL"
+  },
+  "ignore3w": {
+    "message": "Ignorar 'www' en nombre de dominio URL",
+    "description": "Ignorar 'www' en nombre de dominio URL"
+  },
+  "caseInsensitive": {
+    "message": "Ignorar mayúsculas en URL",
+    "description": "Ignorar mayúsculas en URL"
+  },
+  "compareWithTitle": {
+    "message": "Comparar con título",
+    "description": "Comparar con título"
+  },
+  "duplicatetabs": {
+    "message": "Pestañas duplicadas",
+    "description": "Pestañas duplicadas"
+  },
+  "scope": {
+    "message": "Ámbito",
+    "description": "Ámbito"
+  },
+  "activewindow": {
+    "message": "Ventana activa",
+    "description": "Ventana activa"
+  },
+  "allwindows": {
+    "message": "Todas las ventanas",
+    "description": "Todas las ventanas"
+  },
+  "containerActivewindow": {
+    "message": "Contenedor en ventana activa",
+    "description": "Contenedor en ventana activa"
+  },
+  "containerAllwindows": {
+    "message": "Contenedor en todas las ventanas",
+    "description": "Contenedor en todas las ventanas"
+  },
+  "hideWhiteListedDuplicateTabs": {
+    "message": "Ocultar pestañas duplicadas en lista blanca",
+    "description": "Ocultar pestañas duplicadas en lista blanca"
+  },
+  "groupDuplicateTabs": {
+    "message": "Agrupar pestañas duplicadas",
+    "description": "Agrupar pestañas duplicadas"
+  },
+  "closeAllDuplicateTabs": {
+    "message": "Cerrar todas",
+    "description": "Cerrar todas"
+  },
+  "whiteList": {
+    "message": "URLs en lista blanca",
+    "description": "URLs en lista blanca"
+  },
+  "customization": {
+    "message": "Personalización",
+    "description": "Personalización"
+  },
+  "badgeColorDuplicateTabs": {
+    "message": "Color de insignia para pestañas duplicadas",
+    "description": "Color de insignia para pestañas duplicadas"
+  },
+  "badgeColorNoDuplicateTabs": {
+    "message": "Color de insignia sin pestañas duplicadas",
+    "description": "Color de insignia sin pestañas duplicadas"
+  },
+  "showBadgeIfNoDuplicateTabs": {
+    "message": "Mostrar insignia si no hay pestañas duplicadas",
+    "description": "Mostrar insignia si no hay pestañas duplicadas"
+  },
+  "noDuplicateTabs": {
+    "message": "No hay pestañas duplicadas",
+    "description": "No hay pestañas duplicadas"    
+  },
+  "closePopup": {
+    "message": "Cerrar panel emergente después de cerrar pestañas duplicadas",
+    "description": "Cerrar panel emergente después de cerrar pestañas duplicadas"    
+  },
+  "moreOptions": {
+    "message":  "Más opciones...",
+    "description":  "Más opciones..."
+  },
+  "shrunkMode": {
+    "message":  "Modo reducido:\nCuando se activa, oculta las opciones no fijadas.",
+    "description":  "Modo reducido\nCuando se activa, oculta las opciones no fijadas."
+  }  
+}
