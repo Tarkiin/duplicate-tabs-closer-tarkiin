@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Duplicate Tabs Closer Panel</title>
+    <title>Duplicate Tabs Manager Panel</title>
     <link rel="stylesheet" href="../ext_lib/bootstrap-4.5.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../ext_lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../common.css">
     <link rel="stylesheet" href="popup.css">
     <script src="../ext_lib/jquery/jquery-3.5.1.slim.min.js"></script>
     <script src="../ext_lib/bootstrap-4.5.0-dist/js/bootstrap.bundle.min.js"></script>
@@ -130,6 +131,10 @@
                                         <span i18n-content="compareWithTitle"></span>
                                     </label>
                                 </div>
+                                <div id="whiteListGroup" class="mt-2">
+                                  <label class="titleLabel font-weight-bold" for="whiteList" i18n-content="whiteList" style="display:block; margin-bottom: 5px;"></label>
+                                  <textarea class="form-control rounded" rows="3" id="whiteList" placeholder="example.com&#10;google.com" style="font-size: 11px;"></textarea>
+                                </div>
                             </div>
                         </li>
                     </div>
@@ -167,16 +172,9 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="table-footer d-flex">
-                    <!-- <input type="checkbox" class="checkbox-fa" id="duplicateFilterChecked" />
-                    <label for="duplicateFilterChecked" class="checkbox-fa-label">
-                        <span class="fa fa-lg fa-filter"></span>
-                    </label>
-                    <input type="checkbox" class="checkbox-fa" id="duplicateGroupChecked" />
-                    <label for="duplicateGroupChecked" class="checkbox-fa-label">
-                        <span class="fa fa-lg fa-plus-square-o"></span>
-                    </label> -->
-                    <button type="button" class="btn btn-block btn-xs btn-close-tabs disabled" id="closeDuplicateTabsBtn" i18n-content="closeAllDuplicateTabs"></button>
+                <div class="table-footer d-flex align-items-center">
+                    <span id="appVersion" class="text-muted font-weight-bold" style="font-size: 11px; margin-right: auto; padding-right: 10px; color: #a0a0a0;"></span>
+                    <button type="button" class="btn btn-xs btn-close-tabs disabled" id="closeDuplicateTabsBtn" i18n-content="closeAllDuplicateTabs" style="margin-top: 0; width: auto;"></button>
                 </div>
             </div>
         </div>

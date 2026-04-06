@@ -1,7 +1,7 @@
 {
     "options": {
-        "message": "Duplicate Tabs Closer - Tarkiin",
-        "description": "Duplicate Tabs Closer - Tarkiin",
+        "message": "Duplicate Tabs Manager - Tarkin",
+        "description": "Duplicate Tabs Manager - Tarkin",
         "hash": "531dad0078a72193602b18495f0ad4e9"
     },
     "onDuplicateTabDetected": {

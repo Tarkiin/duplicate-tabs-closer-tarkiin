@@ -63,6 +63,40 @@ const loadPopupEvents = () => {
     toggleExpendGroup(this.id, false);
   });
 
+  /* Popup width slider */
+  $("#popupWidth").on("input", function () {
+    $("#popupWidthValue").text(this.value);
+  });
+  $("#popupWidth").on("change", function () {
+    saveOption(this.id, parseInt(this.value, 10));
+  });
+
+  /* Popup height slider */
+  $("#popupHeight").on("input", function () {
+    $("#popupHeightValue").text(this.value);
+  });
+  $("#popupHeight").on("change", function () {
+    saveOption(this.id, parseInt(this.value, 10));
+  });
+
+  /* Reset all settings */
+  $("#resetSettingsBtn").on("click", function () {
+    const confirmMsg = chrome.i18n.getMessage("resetSettingsConfirm");
+    if (confirm(confirmMsg)) {
+      sendMessage("resetOptions").then(response => {
+        if (response && response.data) {
+          const storedOptions = response.data.storedOptions;
+          const lockedKeys = response.data.lockedKeys || [];
+          for (const storedOption in storedOptions) {
+            setPanelOption({ storedOption: storedOption, value: storedOptions[storedOption].value, isLockedKey: lockedKeys.includes(storedOption) });
+          }
+          $("#popupWidthValue").text(storedOptions.popupWidth.value);
+          $("#popupHeightValue").text(storedOptions.popupHeight.value);
+        }
+      });
+    }
+  });
+
 };
 
 const setWhiteList = (whiteList) => {
@@ -71,7 +105,7 @@ const setWhiteList = (whiteList) => {
 
 const cleanUpWhiteList = (whiteList) => {
   const whiteListCleaned = new Set();
-  const whiteListLines = whiteList.split("\n");
+  const whiteListLines = whiteList.split(/[\n,]/);
   for (let whiteListLine of whiteListLines) {
     whiteListLine = whiteListLine.trim();
     if (whiteListLine.length !== 0) whiteListCleaned.add(whiteListLine);
@@ -82,7 +116,6 @@ const cleanUpWhiteList = (whiteList) => {
 /* Show/Hide the AutoClose option */
 const changeAutoCloseOptionState = (state, resize) => {
   $("#onRemainingTabGroup").toggleClass("hidden", state !== "A");
-  $("#whiteListGroup").toggleClass("hidden", state !== "A");
   if (resize) resizeDuplicateTabsPanel();
 };
 
@@ -122,7 +155,7 @@ const setDuplicateTabsTable = (duplicateTabs) => {
     $("#closeDuplicateTabsBtn").toggleClass("disabled", false);
   }
   else {
-    $("#duplicateTabsTableBody").append(`<td class='td-tab-text'><em>${chrome.i18n.getMessage("noDuplicateTabs")}.</em></td>`);
+    $("#duplicateTabsTableBody").append(`<td class='td-tab-text'>✓ ${chrome.i18n.getMessage("noDuplicateTabs")}</td>`);
     $("#closeDuplicateTabsBtn").toggleClass("disabled", true);
   }
   resizeDuplicateTabsPanel(true);
@@ -161,16 +194,26 @@ const setPanelOption = (details) => {
     $("#whiteList").val(value);
     if (isLockedKey) $("#whiteList").prop("disabled", true);
   }
+  else if (storedOption === "popupWidth") {
+    $(`#${storedOption}`).val(value);
+    $("#popupWidthValue").text(value);
+    if (isLockedKey) $(`#${storedOption}`).prop("disabled", true);
+  }
+  else if (storedOption === "popupHeight") {
+    $(`#${storedOption}`).val(value);
+    $("#popupHeightValue").text(value);
+    if (isLockedKey) $(`#${storedOption}`).prop("disabled", true);
+  }
   else {
     if (typeof (value) === "boolean") {
       $(`#${storedOption}`).prop("checked", value);
       if (storedOption.endsWith("Pinned")) toggleExpendGroup(storedOption, true);
     }
-    else if (value.startsWith("#")) {
-      // badge color value
+    else if (typeof (value) === "string" && value.startsWith("#")) {
+      // color value
       $(`#${storedOption}`).prop("value", value);
     }
-    else {
+    else if (typeof (value) === "string") {
       $(`#${storedOption} option[value='${value}']`).prop("selected", true);
       if (storedOption === "onDuplicateTabDetected") changeAutoCloseOptionState(value, resize);
     }

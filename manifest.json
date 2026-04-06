@@ -2,11 +2,11 @@
 "update_url": "https://clients2.google.com/service/update2/crx",
 
   "manifest_version": 3,
-  "name": "Duplicate Tabs Closer - Tarkiin",
-  "version": "3.5.3",
-  "author": "Peuj - Tarkiin",
+  "name": "Duplicate Tabs Manager",
+  "version": "4.0.0",
+  "author": "Tarkin",
   "default_locale": "en",
-  "description": "Duplicate Tabs Closer",
+  "description": "Duplicate Tabs Manager",
   "icons": {
     "48": "images/auto_close_32.png"
   },
@@ -18,7 +18,7 @@
       "16": "images/auto_close_16.png",
       "32": "images/auto_close_32.png"
     },
-    "default_title": "Duplicate Tabs Closer",
+    "default_title": "Duplicate Tabs Manager",
     "default_popup": "popup/popup.html"
   },
   "permissions": [

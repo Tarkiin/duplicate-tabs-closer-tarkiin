@@ -3,9 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Duplicate Tabs Closer Panel</title>
+  <title>Duplicate Tabs Manager Panel</title>
   <link rel="stylesheet" href="../ext_lib/bootstrap-4.5.0-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../ext_lib/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../common.css">
   <link rel="stylesheet" href="optionPage.css">
   <script src="../ext_lib/jquery/jquery-3.5.1.slim.min.js"></script>
   <script src="../ext_lib/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
@@ -42,10 +43,6 @@
                   <option value="A" i18n-content="activateKeptTab"></option>
                   <option value="B" i18n-content="defaultTabBehavior"></option>
                 </select>
-              </div>
-              <div id="whiteListGroup">
-                <label class="titleLabel" for="whiteList" i18n-content="whiteList"></label>
-                <textarea class="form-control rounded-0" rows="4" cols="100" id="whiteList"></textarea>
               </div>
             </div>
           </li>
@@ -123,6 +120,10 @@
                   <span i18n-content="compareWithTitle"></span>
                 </label>
               </div>
+              <div id="whiteListGroup" class="mt-2">
+                <label class="titleLabel font-weight-bold" for="whiteList" i18n-content="whiteList" style="display:block; margin-bottom: 5px;"></label>
+                <textarea class="form-control rounded" rows="3" id="whiteList" placeholder="example.com&#10;google.com" style="font-size: 11px;"></textarea>
+              </div>
             </div>
           </li>
           <li class="list-group-item list-group-item-header d-flex justify-content-between align-items-center">
@@ -159,8 +160,26 @@
                   <td><input class="form-control badgeColor" type="color" value="#563d7c" id="badgeColorNoDuplicateTabs"></td>
                   <td><label class="label-badgeColor" i18n-content="badgeColorNoDuplicateTabs" for="badgeColorNoDuplicateTabs"></label></td>
                 </tr>
+                <tr>
+                  <td><input class="form-control badgeColor" type="color" value="#0facf3" id="popupAccentColor"></td>
+                  <td><label class="label-badgeColor" i18n-content="popupAccentColor" for="popupAccentColor"></label></td>
+                </tr>
               </table>
               <div id="color-picker-1" class="mx-auto"></div>
+              <div class="popup-width-group">
+                <label class="popup-width-label" i18n-content="popupWidth" for="popupWidth"></label>
+                <div class="popup-width-controls">
+                  <input type="range" id="popupWidth" min="280" max="500" step="10" value="350" class="popup-width-slider">
+                  <span id="popupWidthValue" class="popup-width-value">350</span>
+                </div>
+              </div>
+              <div class="popup-width-group">
+                <label class="popup-width-label" i18n-content="popupHeight" for="popupHeight"></label>
+                <div class="popup-width-controls">
+                  <input type="range" id="popupHeight" min="400" max="800" step="10" value="600" class="popup-width-slider">
+                  <span id="popupHeightValue" class="popup-width-value">600</span>
+                </div>
+              </div>
               <div class="checkboxes">
                 <label for="showBadgeIfNoDuplicateTabs">
                   <input type="checkbox" class="checkbox-filter" id="showBadgeIfNoDuplicateTabs" />
@@ -172,6 +191,9 @@
                   <input type="checkbox" class="checkbox-filter" id="closePopup" />
                   <span i18n-content="closePopup"></span>
                 </label>
+              </div>
+              <div class="reset-group">
+                <button type="button" class="btn btn-xs btn-reset" id="resetSettingsBtn" i18n-content="resetSettings"></button>
               </div>
             </div>
           </li>

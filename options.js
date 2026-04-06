@@ -76,6 +76,15 @@ const defaultOptions = {
     closePopup: {
         value: false
     },
+    popupAccentColor: {
+        value: "#0facf3"
+    },
+    popupWidth: {
+        value: 350
+    },
+    popupHeight: {
+        value: 600
+    },
     environment: {
         value: "firefox"
     }
@@ -134,6 +143,17 @@ const setStoredOption = async (name, value, refresh) => {
     if (refresh) refreshGlobalDuplicateTabsInfo();
     else if (name === "onDuplicateTabDetected") setBadgeIcon();
     else if (name === "showBadgeIfNoDuplicateTabs" || name === "badgeColorNoDuplicateTabs" || name === "badgeColorDuplicateTabs") updateBadgeStyle();
+};
+
+// eslint-disable-next-line no-unused-vars
+const resetToDefaults = async () => {
+    const initialOptions = await setupDefaultOptions();
+    const storedOptions = await saveStoredOptions(initialOptions, true);
+    setOptions(storedOptions);
+    setEnvironment(storedOptions);
+    setBadgeIcon();
+    updateBadgeStyle();
+    return { storedOptions: storedOptions, lockedKeys: [] };
 };
 
 const options = {};

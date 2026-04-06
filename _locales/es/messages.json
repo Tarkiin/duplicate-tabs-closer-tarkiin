@@ -1,7 +1,7 @@
 {
   "options": {
-    "message": "Duplicate Tabs Closer - Tarkiin",
-    "description": "Duplicate Tabs Closer - Tarkiin"
+    "message": "Duplicate Tabs Manager - Tarkin",
+    "description": "Duplicate Tabs Manager - Tarkin"
   },
   "onDuplicateTabDetected": {
     "message": "Al detectar pestaña duplicada",
@@ -158,5 +158,25 @@
   "shrunkMode": {
     "message":  "Modo reducido:\nCuando se activa, oculta las opciones no fijadas.",
     "description":  "Modo reducido\nCuando se activa, oculta las opciones no fijadas."
-  }  
+  },
+  "popupAccentColor": {
+    "message": "Color principal del popup",
+    "description": "Color principal del popup"
+  },
+  "popupWidth": {
+    "message": "Ancho del popup (px)",
+    "description": "Ancho del popup en píxeles"
+  },
+  "popupHeight": {
+    "message": "Alto del popup (px)",
+    "description": "Alto del popup en píxeles"
+  },
+  "resetSettings": {
+    "message": "Restablecer ajustes",
+    "description": "Restablecer todos los ajustes a valores predeterminados"
+  },
+  "resetSettingsConfirm": {
+    "message": "¿Restablecer todos los ajustes a valores predeterminados?",
+    "description": "Mensaje de confirmación para restablecer ajustes"
+  }
 }

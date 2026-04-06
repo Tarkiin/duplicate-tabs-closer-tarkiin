@@ -4,6 +4,7 @@ let activeWindowId = chrome.windows.WINDOW_ID_NONE;
 let lastDuplicateTabs = {};
 let closePopup = false;
 let environment = "";
+let currentPopupHeight = 600;
 
 /* Show/Hide the AutoClose option */
 const changeAutoCloseOptionState = (state, resize) => {
@@ -53,21 +54,32 @@ const setDuplicateTabsTable = (duplicateTabs) => {
         $("#closeDuplicateTabsBtn").removeClass("disabled");
     }
     else {
-        $("#duplicateTabsTableBody").append(`<td class='td-tab-text'><em>${chrome.i18n.getMessage("noDuplicateTabs")}.</em></td>`);
+        $("#duplicateTabsTableBody").append(`<td class='td-tab-text'>✓ ${chrome.i18n.getMessage("noDuplicateTabs")}</td>`);
         $("#closeDuplicateTabsBtn").addClass("disabled");
     }
     resizeDuplicateTabsPanel(true);
 };
 
 const resizeDuplicateTabsPanel = (refresh) => {
-    const maxOptionsCardHeight = 432;
     const rowHeight = 26;
     const minRow = 2;
     const nbRows = lastDuplicateTabs ? lastDuplicateTabs.length : 1;
-    const maxRows = Math.min(nbRows, Math.floor((maxOptionsCardHeight - $("#optionsCard").height() + (minRow * rowHeight)) / rowHeight));
+    
+    // Calculate precise remaining space for rows based on dynamic height
+    // Margin/Padding buffer is around 100px (header 40px, footer 40px, gaps 20px)
+    let availableTableHeight = currentPopupHeight - $("#optionsCard").height() - 100;
+    
+    let calculatedMaxRows = Math.floor(availableTableHeight / rowHeight);
+    if (calculatedMaxRows < minRow) calculatedMaxRows = minRow;
+    
+    const maxRows = Math.min(nbRows, calculatedMaxRows);
+
     $("#duplicateTabsTableContainer").toggleClass("table-scrollable-overflow", nbRows > maxRows);
     if (refresh && (nbRows > maxRows)) highlightBottomScrollShadow();
-    $("#duplicateTabsTableContainer").css("height", maxRows * rowHeight);
+    
+    // Give a slightly taller row for the empty state to prevent clipping
+    const finalHeight = (!lastDuplicateTabs || lastDuplicateTabs.length === 0) ? 35 : maxRows * rowHeight;
+    $("#duplicateTabsTableContainer").css("height", finalHeight);
 };
 
 const saveActiveWindowId = async () => {
@@ -80,17 +92,50 @@ const saveOption = (name, value, refresh) => sendMessage("setStoredOption", { "n
 
 const requestGetDuplicateTabs = () => sendMessage("getDuplicateTabs", { "windowId": activeWindowId });
 
+const applyPopupTheme = (accentColor, width, height) => {
+    if (accentColor) {
+        document.documentElement.style.setProperty('--accent-color', accentColor);
+    }
+    if (width) {
+        document.body.style.width = width + "px";
+    }
+    if (height) {
+        currentPopupHeight = height;
+        document.body.style.minHeight = height + "px";
+        document.documentElement.style.maxHeight = height + "px";
+        
+        // Ensure options body doesn't push the bottom card out of bounds
+        // leaving space for top header (40px) and minimum bottom card (135px) + 5px margin
+        const optionsBodyMaxHeight = height - 180;
+        const style = document.createElement('style');
+        style.innerHTML = `#optionsBody { max-height: ${optionsBodyMaxHeight}px !important; }`;
+        document.head.appendChild(style);
+    }
+};
+
 const setPanelOptions = async () => {
     const response = await sendMessage("getStoredOptions");
     const storedOptions = response.data.storedOptions;
     const lockedKeys = response.data.lockedKeys;
     let collapseOptions = true;
+    let accentColor = null;
+    let popupWidth = null;
+    let popupHeight = null;
     for (const storedOption in storedOptions) {
         const value = storedOptions[storedOption].value;
         const isLockedKey = lockedKeys.includes(storedOption);
         if (storedOption === "environment") {
             environment = value;
             if (value === "chrome") $(".containerItem").toggleClass("hidden", true);
+        }
+        else if (storedOption === "popupAccentColor") {
+            accentColor = value;
+        }
+        else if (storedOption === "popupWidth") {
+            popupWidth = value;
+        }
+        else if (storedOption === "popupHeight") {
+            popupHeight = value;
         }
         else {
             // checkbox
@@ -104,14 +149,23 @@ const setPanelOptions = async () => {
                 else if (storedOption === "shrunkMode") toggleShrunkMode(value);
                 else if (storedOption === "closePopup") closePopup = value;
             }
+            // color value
+            else if (typeof (value) === "string" && value.startsWith("#")) {
+                $(`#${storedOption}`).prop("value", value);
+            }
+            // textarea
+            else if (storedOption === "whiteList") {
+                $(`#${storedOption}`).val(value);
+            }
             // combobox
-            else {
+            else if (typeof (value) === "string") {
                 $(`#${storedOption} option[value='${value}']`).prop("selected", true);
                 if (storedOption === "onDuplicateTabDetected") changeAutoCloseOptionState(value, false);
             }
             if (isLockedKey) $(`#${storedOption}`).prop("disabled", true);
         }
     }
+    applyPopupTheme(accentColor, popupWidth, popupHeight);
     if (collapseOptions) toggleExpendOptions(false);
 };
 
@@ -137,6 +191,27 @@ const loadListenerEvents = () => {
         else if (this.id === "shrunkMode") toggleShrunkMode(this.checked);
         const refresh = this.className.includes("checkbox-filter");
         saveOption(this.id, this.checked, refresh);
+    });
+
+    // Helper to clean whitelist
+    const cleanUpWhiteList = (whiteList) => {
+        const whiteListCleaned = new Set();
+        const whiteListLines = whiteList.split(/[\n,]/);
+        for (let whiteListLine of whiteListLines) {
+            whiteListLine = whiteListLine.trim();
+            if (whiteListLine.length !== 0) whiteListCleaned.add(whiteListLine);
+        }
+        return Array.from(whiteListCleaned).join("\n");
+    };
+
+    /* Save textarea settings */
+    $("textarea").on("change", function () {
+        let val = $(this).val();
+        if (this.id === "whiteList") {
+            val = cleanUpWhiteList(val);
+            $(this).val(val);
+        }
+        saveOption(this.id, val, false);
     });
 
     /* Save combobox settings */
@@ -215,11 +290,20 @@ const startObserver = () => {
     observer.observe(optionsBody);
 };
 
+const setVersion = () => {
+    try {
+        const manifest = chrome.runtime.getManifest();
+        if (manifest && manifest.version) {
+            document.getElementById("appVersion").textContent = "v" + manifest.version;
+        }
+    } catch (e) {}
+};
 
 const initialize = async () => {
     await Promise.all([setPanelOptions(), saveActiveWindowId()]);
     requestGetDuplicateTabs();
     localizePopup();
+    setVersion();
     startObserver();
     loadListenerEvents();
 };

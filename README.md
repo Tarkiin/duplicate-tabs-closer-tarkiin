@@ -1,4 +1,4 @@
-# Duplicate Tabs Closer - Mantenido por Tarkiin
+# Duplicate Tabs Manager - Mantenido por Tarkin
 
 ![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-blue?logo=google-chrome)
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-green)
@@ -154,8 +154,8 @@ localhost:*
 
 ```bash
 # Clonar repositorio
-git clone https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin.git
-cd duplicate-tabs-closer-tarkiin
+git clone https://github.com/Tarkin/duplicate-tabs-closer-Tarkin.git
+cd duplicate-tabs-closer-Tarkin
 
 # Cargar en Chrome
 # 1. Ir a chrome://extensions/
@@ -193,8 +193,8 @@ cd duplicate-tabs-closer-tarkiin
 
 ## 📞 Soporte
 
-- **Issues**: [GitHub Issues](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/issues)
-- **Documentación**: [Wiki del Proyecto](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/wiki)
+- **Issues**: [GitHub Issues](https://github.com/Tarkin/duplicate-tabs-closer-Tarkin/issues)
+- **Documentación**: [Wiki del Proyecto](https://github.com/Tarkin/duplicate-tabs-closer-Tarkin/wiki)
 - **Email**: [EMAIL_ADDRESS]
 
 ## 📄 Licencia
@@ -209,7 +209,7 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 
 ### Mantenimiento Actual
 
-- **Tarkiin** - Migración a Manifest V3, mejoras y mantenimiento
+- **Tarkin** - Migración a Manifest V3, mejoras y mantenimiento
 
 ### Contribuidores
 
@@ -226,6 +226,6 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 
 **¿Te gusta esta extensión?** ⭐ ¡Dale una estrella al repositorio y compártela con otros!
 
-**¿Encontraste un bug?** 🐛 [Reporta el problema aquí](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/issues/new)
+**¿Encontraste un bug?** 🐛 [Reporta el problema aquí](https://github.com/Tarkin/duplicate-tabs-closer-Tarkin/issues/new)
 
-**¿Tienes una idea?** 💡 [Sugiere una nueva funcionalidad](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/issues/new?template=feature_request.md)
+**¿Tienes una idea?** 💡 [Sugiere una nueva funcionalidad](https://github.com/Tarkin/duplicate-tabs-closer-Tarkin/issues/new?template=feature_request.md)

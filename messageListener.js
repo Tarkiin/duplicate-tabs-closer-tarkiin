@@ -18,6 +18,10 @@ const handleMessage = (message, sender, response) => {
             closeDuplicateTabs(message.data.windowId);
             break;
         }
+        case "resetOptions": {
+            resetToDefaults().then(storedOptions => response({ data: storedOptions }));
+            return true;
+        }
     }
 };
 

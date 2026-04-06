@@ -1,7 +1,7 @@
 {
   "options": {
-    "message": "Duplicate Tabs Closer - Tarkiin",
-    "description": "Duplicate Tabs Closer - Tarkiin"
+    "message": "Duplicate Tabs Manager - Tarkin",
+    "description": "Duplicate Tabs Manager - Tarkin"
   },
   "onDuplicateTabDetected": {
     "message": "タブの重複を検知したとき",
@@ -158,5 +158,25 @@
   "shrunkMode": {
     "message":  "Shrunk mode:\nWhen activated, hide unpinned options.",
     "description":  "Shrunk mode\nWhen activated, hide unpinned options."
-  }  
+  },
+  "popupAccentColor": {
+    "message": "Popup accent color",
+    "description": "Popup accent color"
+  },
+  "popupWidth": {
+    "message": "Popup width (px)",
+    "description": "Popup width in pixels"
+  },
+  "popupHeight": {
+    "message": "Popup height (px)",
+    "description": "Popup height in pixels"
+  },
+  "resetSettings": {
+    "message": "Reset all settings",
+    "description": "Reset all settings to defaults"
+  },
+  "resetSettingsConfirm": {
+    "message": "Reset all settings to defaults?",
+    "description": "Confirmation message for resetting settings"
+  }
 }
