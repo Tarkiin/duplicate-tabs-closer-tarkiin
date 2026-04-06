@@ -10,6 +10,7 @@ Una extensión de Chrome potente y eficiente para detectar y cerrar pestañas du
 ## 🚀 Características
 
 ### Funcionalidades Principales
+
 - **Detección Automática**: Identifica pestañas duplicadas en tiempo real
 - **Cierre Inteligente**: Cierra automáticamente las pestañas duplicadas según tus preferencias
 - **Múltiples Criterios**: Compara por URL, título, o ambos
@@ -18,6 +19,7 @@ Una extensión de Chrome potente y eficiente para detectar y cerrar pestañas du
 - **Indicador Visual**: Badge que muestra el número de pestañas duplicadas
 
 ### Opciones de Configuración
+
 - **Modo Compacto**: Interfaz minimalista
 - **Criterios de Comparación**:
   - Ignorar fragmentos (#)
@@ -32,17 +34,20 @@ Una extensión de Chrome potente y eficiente para detectar y cerrar pestañas du
   - Proteger pestañas fijadas
 
 ### Ámbitos de Acción
+
 - **Ventana Actual**: Solo en la ventana activa
 - **Todas las Ventanas**: En todo el navegador
 
 ## 📦 Instalación
 
 ### Desde Chrome Web Store
+
 1. Visita la [Chrome Web Store](chrome-web-store-link)
 2. Haz clic en "Añadir a Chrome"
 3. Confirma la instalación
 
 ### Instalación Manual (Desarrolladores)
+
 1. Descarga o clona este repositorio
 2. Abre Chrome y ve a `chrome://extensions/`
 3. Activa el "Modo de desarrollador"
@@ -52,11 +57,13 @@ Una extensión de Chrome potente y eficiente para detectar y cerrar pestañas du
 ## 🎯 Uso
 
 ### Acceso Rápido
+
 - **Icono de la Extensión**: Haz clic para abrir el popup principal
 - **Atajo de Teclado**: `Alt+Shift+W` para cerrar duplicados rápidamente
 - **Badge**: Muestra el número de pestañas duplicadas detectadas
 
 ### Configuración
+
 1. Haz clic derecho en el icono de la extensión
 2. Selecciona "Opciones"
 3. Configura tus preferencias:
@@ -66,6 +73,7 @@ Una extensión de Chrome potente y eficiente para detectar y cerrar pestañas du
    - Colores del badge
 
 ### Funciones del Popup
+
 - **Vista de Pestañas**: Lista todas las pestañas con duplicados detectados
 - **Cerrar Duplicados**: Botón para cerrar automáticamente
 - **Configuración Rápida**: Acceso a opciones principales
@@ -73,6 +81,7 @@ Una extensión de Chrome potente y eficiente para detectar y cerrar pestañas du
 ## ⚙️ Configuración Avanzada
 
 ### Listas Blanca y Negra
+
 ```
 # Lista Blanca (sitios a ignorar)
 example.com
@@ -85,6 +94,7 @@ localhost:*
 ```
 
 ### Patrones de URL
+
 - `*` coincide con cualquier carácter
 - `*.dominio.com` coincide con todos los subdominios
 - `dominio.com/*` coincide con todas las rutas
@@ -136,10 +146,12 @@ localhost:*
 ## 🔧 Desarrollo
 
 ### Requisitos
+
 - Chrome/Chromium 88+
 - Node.js (para desarrollo)
 
 ### Comandos de Desarrollo
+
 ```bash
 # Clonar repositorio
 git clone https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin.git
@@ -152,6 +164,7 @@ cd duplicate-tabs-closer-tarkiin
 ```
 
 ### Contribuir
+
 1. Fork el proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
 3. Commit tus cambios (`git commit -am 'Añadir nueva funcionalidad'`)
@@ -161,12 +174,14 @@ cd duplicate-tabs-closer-tarkiin
 ## 📝 Changelog
 
 ### v3.5.3 (Actual)
+
 - ✅ Migración completa a Manifest V3
 - ✅ Corrección de APIs deprecadas
 - ✅ Optimización de rendimiento
 - ✅ Mejoras en la detección de duplicados
 
 ### Versiones Anteriores
+
 - **v3.5.x**: Mejoras en la interfaz y corrección de bugs
 - **v3.4.x**: Añadido soporte para listas blanca/negra
 - **v3.3.x**: Implementación de criterios avanzados de comparación
@@ -180,7 +195,7 @@ cd duplicate-tabs-closer-tarkiin
 
 - **Issues**: [GitHub Issues](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/issues)
 - **Documentación**: [Wiki del Proyecto](https://github.com/Tarkiin/duplicate-tabs-closer-tarkiin/wiki)
-- **Email**: joel_torresano@hotmail.com
+- **Email**: [EMAIL_ADDRESS]
 
 ## 📄 Licencia
 
@@ -189,12 +204,15 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 ## 👥 Créditos
 
 ### Desarrollador Original
+
 - **Peuj** - Desarrollo inicial
 
 ### Mantenimiento Actual
+
 - **Tarkiin** - Migración a Manifest V3, mejoras y mantenimiento
 
 ### Contribuidores
+
 - Comunidad de usuarios por reportes de bugs y sugerencias
 - Traductores voluntarios para la internacionalización
 
