@@ -66,8 +66,8 @@ const resizeDuplicateTabsPanel = (refresh) => {
     const nbRows = lastDuplicateTabs ? lastDuplicateTabs.length : 1;
     
     // Calculate precise remaining space for rows based on dynamic height
-    // Margin/Padding buffer is around 100px (header 40px, footer 40px, gaps 20px)
-    let availableTableHeight = currentPopupHeight - $("#optionsCard").height() - 100;
+    // Margin/Padding buffer is around 130px (header 40px, footer 50px, gaps 40px)
+    let availableTableHeight = currentPopupHeight - $("#optionsCard").height() - 130;
     
     let calculatedMaxRows = Math.floor(availableTableHeight / rowHeight);
     if (calculatedMaxRows < minRow) calculatedMaxRows = minRow;
@@ -105,8 +105,8 @@ const applyPopupTheme = (accentColor, width, height) => {
         document.documentElement.style.maxHeight = height + "px";
         
         // Ensure options body doesn't push the bottom card out of bounds
-        // leaving space for top header (40px) and minimum bottom card (135px) + 5px margin
-        const optionsBodyMaxHeight = height - 180;
+        // leaving space for top header (40px) and minimum bottom card (165px) + 5px margin
+        const optionsBodyMaxHeight = height - 210;
         const style = document.createElement('style');
         style.innerHTML = `#optionsBody { max-height: ${optionsBodyMaxHeight}px !important; }`;
         document.head.appendChild(style);
